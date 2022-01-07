@@ -16,8 +16,12 @@ public class Result{
 		return this.result;
 	}
 
-	public String toString(){
-		return String.format("%s %f",green?"Green":"Red", result);
+	public float calculateWinnings(float stake){
+		return stake/this.result - stake;
+	}
+
+	public String toString(float stake){
+		return String.format("%s - Winning: %f",green?"Green":"Red", calculateWinnings(stake));
 	}
 
 }

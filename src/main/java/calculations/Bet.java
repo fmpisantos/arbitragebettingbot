@@ -43,12 +43,16 @@ public class Bet {
 		return new Result(result < 1, result);
 	}
 
-	public String toString(){
+	public float getBestBet(float stake, float result, float odd){
+		return stake * odd / result;
+	}
+
+	public String toString(float stake){
+		Result result = getResult();
 		StringBuilder s = new StringBuilder();
 		for(SimpleBet simple : bestBet)
-			s.append(String.format("%s\n",simple.toString()));
-
-		return String.format("%s%s",s.toString(),getResult().toString());
+			s.append(String.format("%s - Amount to bet: %f\n",simple.toString(),getBestBet(stake,result.getResult(),1/simple.getOdd())));
+		return String.format("%s%s",s.toString(),result.toString(stake));
 	}
 
 }

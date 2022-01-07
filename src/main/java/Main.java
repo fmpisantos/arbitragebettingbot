@@ -15,11 +15,13 @@ public class Main {
 		Bet bet = new Bet();
 		List<SimpleBet> simple;
 
+		float stake = getStake(reader);
+
 		maxI = getNumberOfPossibilities(reader);
 			
 		while(true){
 			simple = new ArrayList<SimpleBet>();
-			System.out.println("Press enter to add new simple bet or write DONE if you've added all the bets\n");
+			System.out.println("Press enter to add new simple bet or write DONE if you've added all the bets");
 			input = reader.readLine();
 			if(input.equalsIgnoreCase("done"))
 				break;
@@ -36,7 +38,7 @@ public class Main {
 			}
 		}
 		
-		System.out.println(bet.toString());
+		System.out.println(bet.toString(stake));
 	}
 
 	public static SimpleBet loadNext(BufferedReader reader) throws IOException{
@@ -58,6 +60,16 @@ public class Main {
 		}catch(Exception e){
 			System.out.println("The input for this needs to be a number.\nPlease try again!");	
 			return getNumberOfPossibilities(reader);
+		}
+	}
+
+	public static float getStake(BufferedReader reader) throws IOException {
+		System.out.println("Enter your stake: ");
+		try{
+			return Float.parseFloat(reader.readLine());
+		}catch(Exception e){
+			System.out.println("The input for this needs to be a number.\nPlease try again!");	
+			return getStake(reader);
 		}
 	}
 
