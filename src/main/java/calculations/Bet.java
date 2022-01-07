@@ -51,7 +51,7 @@ public class Bet {
 		Result result = getResult();
 		StringBuilder s = new StringBuilder();
 		for(SimpleBet simple : bestBet)
-			s.append(String.format("%s - Amount to bet: %f\n",simple.toString(),getBestBet(stake,result.getResult(),1/simple.getOdd())));
+			s.append(String.format("%s - Amount to bet: %f €\n",simple.toString(),getBestBet(stake,result.getResult(),1/simple.getOdd())));
 		return String.format("%s%s",s.toString(),result.toString(stake));
 	}
 

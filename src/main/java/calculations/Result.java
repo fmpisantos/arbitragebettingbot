@@ -21,7 +21,7 @@ public class Result{
 	}
 
 	public String toString(float stake){
-		return String.format("%s - Winning: %f",green?"Green":"Red", calculateWinnings(stake));
+		return String.format("%s - Winning: %f €",green?"Green":"Red",calculateWinnings(stake));
 	}
 
 }
